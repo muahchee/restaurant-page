@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
 
   entry: "./src/index.js",
 
@@ -39,4 +39,11 @@ module.exports = {
       },
     ],
   },
+
+  //makes max asset size for production mode bigger (default ~244KiB)
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  }
 };
